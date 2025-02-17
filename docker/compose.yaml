@@ -1,0 +1,18 @@
+services:
+  earthx:
+    build: ../.
+    #image:
+    restart: unless-stopped
+    container_name: earthX
+    environment:
+      - tz=Europe/Amsterdam
+
+  mongodb:
+    image: mongo:latest
+    restart: unless-stopped
+    container_name: mongoDB
+    volumes:
+      - mongo:/data/db
+
+volumes:
+  mongo:
